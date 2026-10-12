@@ -3,6 +3,10 @@
 Semantic_FSM is a Python project for defining, executing, and reasoning about finite-state machines (FSMs) in a clean, extensible way.
 
 This repository is intended for applications where system behavior can be modeled as a set of explicit states and valid transitions between them. It is useful for workflows, agent logic, protocol handling, and event-driven systems.
+To run the verification code and replicate the performance metrics:
+- Initialize the FSM Model: Instantiate SemanticFSM using extracted states ($S_0, S_1, S_2, S_3, F$) and populate delta_impl with deployed subsystem rules and delta_auth with regulatory preconditions $\Phi(\sigma)$.
+- Run Reachability Mining: Execute VulnerabilitySearchEngine.bounded_symbolic_search() to identify illegal state reachability paths ($p \in \delta_{\text{impl}}^* \setminus \delta_{\text{auth}}^*$).
+- Evaluate Intent Scores: Pass discovered paths and actor telemetry logs into IntentInferenceModule to rank findings and generate traceable evidence chains for human auditor review.   
 
 ## Features
 
